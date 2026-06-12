@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Details | Vaishnav Investment & Properties</title>
+  <meta name="description" content="View complete property details including images, specifications, amenities, and more. Contact Vaishnav Investment & Properties for the best real estate deals in Delhi.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-solid" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/vp-removebg-preview.png" alt="Vaishnav Investment & Properties Logo">
+        <div class="logo-text">
+          <strong>Vaishnav Investment</strong>
+          <span>& Properties</span>
+        </div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="properties.html">Properties</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="add-property.html" class="nav-add-btn"><i class="fas fa-plus"></i> Add Property</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <h1 id="detail-banner-title">Property Details</h1>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="properties.html">Properties</a>
+      <i class="fas fa-chevron-right"></i>
+      <span class="current" id="detail-breadcrumb-name">Property</span>
+    </div>
+  </section>
+
+  <!-- Property Detail Content -->
+  <section class="section" id="property-detail-section">
+    <div class="container">
+
+      <!-- Loading State -->
+      <div class="detail-loading" id="detail-loading">
+        <div class="loading-spinner"></div>
+        <p>Loading property details...</p>
+      </div>
+
+      <!-- Error State -->
+      <div class="detail-error" id="detail-error" style="display:none;">
+        <i class="fas fa-exclamation-circle"></i>
+        <h3>Property Not Found</h3>
+        <p>The property you're looking for doesn't exist or has been removed.</p>
+        <a href="properties.html" class="btn btn-primary">Browse Properties <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- Detail Content (hidden until loaded) -->
+      <div class="detail-content" id="detail-content" style="display:none;">
+
+        <!-- Header -->
+        <div class="detail-header">
+          <div class="detail-header-left">
+            <div class="detail-badges" id="detail-badges"></div>
+            <h1 class="detail-title" id="detail-title"></h1>
+            <div class="detail-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span id="detail-address"></span>
+            </div>
+          </div>
+          <div class="detail-header-right">
+            <div class="detail-price" id="detail-price"></div>
+            <div class="detail-actions">
+              <button class="action-btn" id="share-btn" title="Share">
+                <i class="fas fa-share-alt"></i>
+              </button>
+              <a class="action-btn" id="whatsapp-enquiry" href="#" target="_blank" title="WhatsApp Enquiry">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <button class="action-btn action-btn-delete" id="delete-btn" title="Delete Property">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="detail-gallery" id="detail-gallery">
+          <div class="gallery-main" id="gallery-main">
+            <img src="" alt="Property main image" id="gallery-main-img">
+          </div>
+          <div class="gallery-thumbnails" id="gallery-thumbnails"></div>
+        </div>
+
+        <!-- Quick Info Bar -->
+        <div class="detail-quick-info" id="detail-quick-info"></div>
+
+        <!-- Two Column Layout -->
+        <div class="detail-grid">
+          <div class="detail-main">
+
+            <!-- Specifications Table -->
+            <div class="detail-section" id="detail-specs-section">
+              <h2><span class="accent-block"></span>Project Specifications</h2>
+              <div class="specs-table" id="detail-specs-table"></div>
+            </div>
+
+            <!-- About Project -->
+            <div class="detail-section" id="detail-about-section">
+              <h2><span class="accent-block"></span>About This Property</h2>
+              <div class="detail-description" id="detail-description"></div>
+            </div>
+
+            <!-- Highlights -->
+            <div class="detail-section" id="detail-highlights-section" style="display:none;">
+              <h2><span class="accent-block"></span>Key Highlights</h2>
+              <ul class="detail-highlights" id="detail-highlights"></ul>
+            </div>
+
+            <!-- Amenities -->
+            <div class="detail-section" id="detail-amenities-section" style="display:none;">
+              <h2><span class="accent-block"></span>Amenities & Facilities</h2>
+              <div class="amenities-grid" id="detail-amenities"></div>
+            </div>
+
+          </div>
+
+          <!-- Sidebar -->
+          <div class="detail-sidebar">
+            <!-- Contact Card -->
+            <div class="sidebar-card">
+              <h3><i class="fas fa-phone-alt"></i> Interested in this property?</h3>
+              <p>Get in touch with us for more details, site visits, and special offers.</p>
+              <a href="tel:+919911987333" class="btn btn-primary sidebar-btn">
+                <i class="fas fa-phone-alt"></i> Call Now: +91 9911987333
+              </a>
+              <a id="sidebar-whatsapp" href="https://wa.me/919911987333" target="_blank" class="btn btn-outline sidebar-btn whatsapp-sidebar">
+                <i class="fab fa-whatsapp"></i> WhatsApp Enquiry
+              </a>
+            </div>
+
+            <!-- Location Card -->
+            <div class="sidebar-card" id="sidebar-location-card">
+              <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+              <div class="sidebar-location-info">
+                <p id="sidebar-address"></p>
+                <p id="sidebar-pincode"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Similar Properties -->
+        <div class="detail-section" id="similar-section" style="display:none;">
+          <h2><span class="accent-block"></span>Similar Properties</h2>
+          <div class="properties-grid" id="similar-properties-grid"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="delete-modal-overlay" id="delete-modal" style="display:none;">
+    <div class="delete-modal">
+      <div class="delete-modal-icon">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+      <h3>Delete This Property?</h3>
+      <p>This action cannot be undone. The property and all its images will be permanently removed.</p>
+      <div class="delete-modal-actions">
+        <button class="btn btn-outline" id="delete-cancel">Cancel</button>
+        <button class="btn btn-delete" id="delete-confirm">
+          <i class="fas fa-trash-alt"></i> Delete Property
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox" style="display:none;">
+    <button class="lightbox-close" id="lightbox-close"><i class="fas fa-times"></i></button>
+    <button class="lightbox-prev" id="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-next" id="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+    <div class="lightbox-content">
+      <img src="" alt="Property image" id="lightbox-img">
+    </div>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="assets/images/vp-removebg-preview.png" alt="Vaishnav Investment & Properties Logo">
+            <div class="logo-text">
+              <strong>Vaishnav Investment</strong>
+              <span>& Properties</span>
+            </div>
+          </div>
+          <p class="footer-desc">Your one-stop destination for buying, selling, and renting premium properties in Delhi. Trusted by hundreds of families and businesses.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61590262600106" class="social-fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/vaishnav_investment_properties?igsh=MTB2bG1zbHljcHlvcQ==" class="social-ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@vaishnavinvestmentproperties?si=lGr510K-Lj7GFJqq" class="social-yt" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="properties.html"><i class="fas fa-chevron-right"></i> Properties</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Property Types</h4>
+          <ul>
+            <li><a href="properties.html?type=Apartment"><i class="fas fa-chevron-right"></i> Apartments</a></li>
+            <li><a href="properties.html?type=Villa"><i class="fas fa-chevron-right"></i> Villas</a></li>
+            <li><a href="properties.html?type=Commercial"><i class="fas fa-chevron-right"></i> Commercial</a></li>
+            <li><a href="properties.html?type=Builder+Floor"><i class="fas fa-chevron-right"></i> Builder Floors</a></li>
+            <li><a href="properties.html?type=Plot"><i class="fas fa-chevron-right"></i> Plots</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span><a href="tel:+919911987333">+91 9911987333</a></span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span><a href="mailto:connect.vipassets@gmail.com">connect.vipassets@gmail.com</a></span>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Delhi, India</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Vaishnav Investment & Properties. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/919911987333" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="tooltip">Chat with us</span>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* ============================================
+       PROPERTY DETAIL PAGE LOGIC
+       ============================================ */
+
+    // Amenity icon mapping
+    const amenityIcons = {
+      'Swimming Pool': 'fas fa-swimming-pool',
+      'Gym': 'fas fa-dumbbell',
+      'Parking': 'fas fa-parking',
+      'Security': 'fas fa-shield-alt',
+      'Power Backup': 'fas fa-bolt',
+      'Lift': 'fas fa-arrow-up',
+      'Club House': 'fas fa-building',
+      "Children's Play Area": 'fas fa-child',
+      'Garden': 'fas fa-leaf',
+      'Home Theater': 'fas fa-film',
+      'Servant Quarter': 'fas fa-door-open',
+      'Terrace': 'fas fa-cloud-sun',
+      'CCTV': 'fas fa-video',
+      'Fire Safety': 'fas fa-fire-extinguisher',
+      'Cafeteria': 'fas fa-coffee',
+      'Conference Room': 'fas fa-users',
+      'Park': 'fas fa-tree',
+      'Street Lighting': 'fas fa-lightbulb',
+      'Wide Roads': 'fas fa-road',
+      'Boundary Wall': 'fas fa-border-all',
+      'Water Supply': 'fas fa-tint',
+      'Modular Kitchen': 'fas fa-utensils',
+      'Wooden Flooring': 'fas fa-th-large',
+      'Concierge': 'fas fa-concierge-bell',
+      'Rooftop Garden': 'fas fa-seedling',
+      'Jacuzzi': 'fas fa-hot-tub',
+      'Tennis Court': 'fas fa-table-tennis',
+      'Lawn': 'fas fa-leaf'
+    };
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search);
+      const propertyId = params.get('id');
+
+      const loadingEl = document.getElementById('detail-loading');
+      const errorEl = document.getElementById('detail-error');
+      const contentEl = document.getElementById('detail-content');
+
+      if (!propertyId) {
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/properties/${propertyId}`);
+        if (!res.ok) throw new Error('Not found');
+        const property = await res.json();
+
+        // Hide loading, show content
+        loadingEl.style.display = 'none';
+        contentEl.style.display = 'block';
+
+        // Update page title and breadcrumb
+        document.title = `${property.title} | Vaishnav Investment & Properties`;
+        document.getElementById('detail-banner-title').textContent = property.title;
+        document.getElementById('detail-breadcrumb-name').textContent = property.title;
+
+        // Header
+        const statusClass = property.status === 'For Sale' ? 'badge-sale' : property.status === 'Buy' ? 'badge-buy' : 'badge-rent';
+        document.getElementById('detail-badges').innerHTML = `
+          <span class="badge-tag ${statusClass}">${property.status}</span>
+          <span class="badge-tag badge-type">${property.type}</span>
+          ${property.featured ? '<span class="badge-tag badge-featured">Featured</span>' : ''}
+        `;
+        document.getElementById('detail-title').textContent = property.title;
+        document.getElementById('detail-address').textContent = property.address || `${property.location}, Delhi`;
+        document.getElementById('detail-price').textContent = property.price;
+
+        // WhatsApp links
+        const whatsappMsg = encodeURIComponent(`Hi, I'm interested in: ${property.title} (${property.price}) - ${property.location}`);
+        document.getElementById('whatsapp-enquiry').href = `https://wa.me/919911987333?text=${whatsappMsg}`;
+        document.getElementById('sidebar-whatsapp').href = `https://wa.me/919911987333?text=${whatsappMsg}`;
+
+        // Share button
+        document.getElementById('share-btn').addEventListener('click', () => {
+          if (navigator.share) {
+            navigator.share({
+              title: property.title,
+              text: `Check out this property: ${property.title} - ${property.price}`,
+              url: window.location.href
+            });
+          } else {
+            navigator.clipboard.writeText(window.location.href);
+            alert('Link copied to clipboard!');
+          }
+        });
+
+        // Image Gallery
+        const allImages = [property.image, ...(property.gallery || [])];
+        const uniqueImages = [...new Set(allImages)].filter(Boolean);
+
+        const mainImg = document.getElementById('gallery-main-img');
+        mainImg.src = uniqueImages[0];
+        mainImg.alt = property.title;
+        mainImg.style.cursor = 'pointer';
+        mainImg.addEventListener('click', () => openLightbox(0));
+
+        const thumbsContainer = document.getElementById('gallery-thumbnails');
+        thumbsContainer.innerHTML = uniqueImages.map((img, i) => `
+          <div class="gallery-thumb ${i === 0 ? 'active' : ''}" data-index="${i}">
+            <img src="${img}" alt="${property.title} - Image ${i + 1}" loading="lazy">
+          </div>
+        `).join('');
+
+        // Thumbnail clicks
+        thumbsContainer.querySelectorAll('.gallery-thumb').forEach(thumb => {
+          thumb.addEventListener('click', () => {
+            const idx = parseInt(thumb.dataset.index);
+            mainImg.src = uniqueImages[idx];
+            thumbsContainer.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+          });
+        });
+
+        // Lightbox functionality
+        let currentLightboxIndex = 0;
+        function openLightbox(index) {
+          currentLightboxIndex = index;
+          const lightbox = document.getElementById('lightbox');
+          const lightboxImg = document.getElementById('lightbox-img');
+          const counter = document.getElementById('lightbox-counter');
+          lightboxImg.src = uniqueImages[index];
+          counter.textContent = `${index + 1} / ${uniqueImages.length}`;
+          lightbox.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
+
+        document.getElementById('lightbox-close').addEventListener('click', () => {
+          document.getElementById('lightbox').style.display = 'none';
+          document.body.style.overflow = '';
+        });
+
+        document.getElementById('lightbox-prev').addEventListener('click', () => {
+          currentLightboxIndex = (currentLightboxIndex - 1 + uniqueImages.length) % uniqueImages.length;
+          document.getElementById('lightbox-img').src = uniqueImages[currentLightboxIndex];
+          document.getElementById('lightbox-counter').textContent = `${currentLightboxIndex + 1} / ${uniqueImages.length}`;
+        });
+
+        document.getElementById('lightbox-next').addEventListener('click', () => {
+          currentLightboxIndex = (currentLightboxIndex + 1) % uniqueImages.length;
+          document.getElementById('lightbox-img').src = uniqueImages[currentLightboxIndex];
+          document.getElementById('lightbox-counter').textContent = `${currentLightboxIndex + 1} / ${uniqueImages.length}`;
+        });
+
+        // Close lightbox on overlay click
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+          if (e.target.id === 'lightbox') {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = '';
+          }
+        });
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', (e) => {
+          const lightbox = document.getElementById('lightbox');
+          if (lightbox.style.display === 'none') return;
+          if (e.key === 'Escape') {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = '';
+          } else if (e.key === 'ArrowLeft') {
+            document.getElementById('lightbox-prev').click();
+          } else if (e.key === 'ArrowRight') {
+            document.getElementById('lightbox-next').click();
+          }
+        });
+
+        // Quick Info Bar
+        const quickInfoHTML = [];
+        quickInfoHTML.push(`
+          <div class="quick-info-item">
+            <i class="fas fa-building"></i>
+            <div>
+              <strong>${property.type}</strong>
+              <span>Property Type</span>
+            </div>
+          </div>
+        `);
+        if (property.bedrooms > 0) {
+          quickInfoHTML.push(`
+            <div class="quick-info-item">
+              <i class="fas fa-bed"></i>
+              <div>
+                <strong>${property.configurations || property.bedrooms + ' BHK'}</strong>
+                <span>Configuration</span>
+              </div>
+            </div>
+          `);
+        }
+        quickInfoHTML.push(`
+          <div class="quick-info-item">
+            <i class="fas fa-ruler-combined"></i>
+            <div>
+              <strong>${property.area} sqft</strong>
+              <span>Built-up Area</span>
+            </div>
+          </div>
+        `);
+        if (property.projectArea) {
+          quickInfoHTML.push(`
+            <div class="quick-info-item">
+              <i class="fas fa-map"></i>
+              <div>
+                <strong>${property.projectArea}</strong>
+                <span>Total Area</span>
+              </div>
+            </div>
+          `);
+        }
+        document.getElementById('detail-quick-info').innerHTML = quickInfoHTML.join('');
+
+        // Specifications Table
+        const specs = [];
+        if (property.area) specs.push(['Layout Size', property.area + ' sqft']);
+        if (property.projectArea) specs.push(['Project Area', property.projectArea]);
+        if (property.configurations) specs.push(['Configurations', property.configurations]);
+        if (property.floors > 0) specs.push(['Number of Floors', property.floors]);
+        if (property.units > 0) specs.push(['Number of Units', property.units]);
+        if (property.bedrooms > 0) specs.push(['Bedrooms', property.bedrooms]);
+        if (property.bathrooms > 0) specs.push(['Bathrooms', property.bathrooms]);
+        if (property.possessionStatus) specs.push(['Possession Status', property.possessionStatus]);
+
+        document.getElementById('detail-specs-table').innerHTML = `
+          <div class="specs-grid">
+            ${specs.map(([label, value]) => `
+              <div class="spec-row">
+                <span class="spec-label">${label}:</span>
+                <span class="spec-value">${value}</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+
+        // Description
+        document.getElementById('detail-description').innerHTML = `<p>${property.description}</p>`;
+
+        // Highlights
+        if (property.highlights && property.highlights.length > 0) {
+          document.getElementById('detail-highlights-section').style.display = 'block';
+          document.getElementById('detail-highlights').innerHTML = property.highlights.map(h =>
+            `<li><i class="fas fa-check-circle"></i> ${h}</li>`
+          ).join('');
+        }
+
+        // Amenities
+        if (property.amenities && property.amenities.length > 0) {
+          document.getElementById('detail-amenities-section').style.display = 'block';
+          document.getElementById('detail-amenities').innerHTML = property.amenities.map(a => {
+            const icon = amenityIcons[a] || 'fas fa-check';
+            return `
+              <div class="amenity-item">
+                <i class="${icon}"></i>
+                <span>${a}</span>
+              </div>
+            `;
+          }).join('');
+        }
+
+        // Sidebar location
+        document.getElementById('sidebar-address').textContent = property.address || `${property.location}, Delhi`;
+        document.getElementById('sidebar-pincode').textContent = property.pincode ? `Pincode: ${property.pincode}` : '';
+
+        // Delete button
+        document.getElementById('delete-btn').addEventListener('click', () => {
+          document.getElementById('delete-modal').style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+
+        document.getElementById('delete-cancel').addEventListener('click', () => {
+          document.getElementById('delete-modal').style.display = 'none';
+          document.body.style.overflow = '';
+        });
+
+        document.getElementById('delete-modal').addEventListener('click', (e) => {
+          if (e.target.id === 'delete-modal') {
+            document.getElementById('delete-modal').style.display = 'none';
+            document.body.style.overflow = '';
+          }
+        });
+
+        document.getElementById('delete-confirm').addEventListener('click', async () => {
+          const confirmBtn = document.getElementById('delete-confirm');
+          confirmBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Deleting...';
+          confirmBtn.disabled = true;
+
+          try {
+            const delRes = await fetch(`/api/properties/${propertyId}`, { method: 'DELETE' });
+            if (!delRes.ok) throw new Error('Delete failed');
+
+            // Show success briefly then redirect
+            document.getElementById('delete-modal').querySelector('.delete-modal').innerHTML = `
+              <div class="delete-modal-icon" style="background: linear-gradient(135deg, #10B981, #059669);">
+                <i class="fas fa-check"></i>
+              </div>
+              <h3>Property Deleted</h3>
+              <p>Redirecting to properties page...</p>
+            `;
+
+            setTimeout(() => {
+              window.location.href = 'properties.html';
+            }, 1500);
+          } catch (err) {
+            alert('Failed to delete property: ' + err.message);
+            confirmBtn.innerHTML = '<i class="fas fa-trash-alt"></i> Delete Property';
+            confirmBtn.disabled = false;
+          }
+        });
+
+        // Load similar properties
+        try {
+          const simRes = await fetch(`/api/properties?type=${encodeURIComponent(property.type)}`);
+          const allSimilar = await simRes.json();
+          const similar = allSimilar.filter(p => p._id !== property._id).slice(0, 3);
+
+          if (similar.length > 0) {
+            document.getElementById('similar-section').style.display = 'block';
+            document.getElementById('similar-properties-grid').innerHTML = similar.map(p => {
+              const sClass = p.status === 'For Sale' ? 'badge-sale' : p.status === 'Buy' ? 'badge-buy' : 'badge-rent';
+              return `
+                <a href="property-detail.html?id=${p._id}" class="property-card reveal visible" style="text-decoration:none;color:inherit;">
+                  <div class="card-image">
+                    <img src="${p.image}" alt="${p.title}" loading="lazy">
+                    <div class="card-badges">
+                      <span class="badge-tag ${sClass}">${p.status}</span>
+                      ${p.featured ? '<span class="badge-tag badge-featured">Featured</span>' : ''}
+                    </div>
+                    <div class="card-price">${p.price}</div>
+                  </div>
+                  <div class="card-body">
+                    <h3 class="card-title">${p.title}</h3>
+                    <div class="card-location">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <span>${p.location}, Delhi</span>
+                    </div>
+                    <div class="card-meta">
+                      ${p.bedrooms > 0 ? `<span class="meta-item"><i class="fas fa-bed"></i> ${p.bedrooms} Beds</span>` : ''}
+                      ${p.bathrooms > 0 ? `<span class="meta-item"><i class="fas fa-bath"></i> ${p.bathrooms} Baths</span>` : ''}
+                      <span class="meta-item"><i class="fas fa-ruler-combined"></i> ${p.area} sqft</span>
+                    </div>
+                  </div>
+                </a>
+              `;
+            }).join('');
+          }
+        } catch (e) {
+          console.log('Could not load similar properties');
+        }
+
+      } catch (err) {
+        console.error('Error loading property:', err);
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

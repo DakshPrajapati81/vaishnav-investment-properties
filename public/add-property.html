@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Property | Vaishnav Investment & Properties</title>
+  <meta name="description" content="List your property on Vaishnav Investment & Properties. Add apartments, villas, commercial spaces, and more for sale or rent in Delhi.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-solid" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/vp-removebg-preview.png" alt="Vaishnav Investment & Properties Logo">
+        <div class="logo-text">
+          <strong>Vaishnav Investment</strong>
+          <span>& Properties</span>
+        </div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="properties.html">Properties</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="add-property.html" class="nav-add-btn active"><i class="fas fa-plus"></i> Add Property</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <h1>Add New Property</h1>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="properties.html">Properties</a>
+      <i class="fas fa-chevron-right"></i>
+      <span class="current">Add Property</span>
+    </div>
+  </section>
+
+  <!-- Add Property Form -->
+  <section class="section">
+    <div class="container">
+      <div class="add-property-wrapper">
+
+        <form class="add-property-form" id="add-property-form" enctype="multipart/form-data">
+
+          <!-- Step 1: Basic Info -->
+          <div class="form-section">
+            <div class="form-section-header">
+              <div class="form-section-icon"><i class="fas fa-home"></i></div>
+              <div>
+                <h3>Basic Information</h3>
+                <p>Enter the essential details about your property</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="prop-title">Property Title <span class="required">*</span></label>
+              <input type="text" id="prop-title" name="title" placeholder="e.g., Luxury 3BHK Apartment in South Delhi" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prop-type">Property Type <span class="required">*</span></label>
+                <select id="prop-type" name="type" required>
+                  <option value="">Select Type</option>
+                  <option value="Apartment">Apartment</option>
+                  <option value="Villa">Villa</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Builder Floor">Builder Floor</option>
+                  <option value="Plot">Plot</option>
+                  <option value="Penthouse">Penthouse</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="prop-status">Listing Status <span class="required">*</span></label>
+                <select id="prop-status" name="status" required>
+                  <option value="">Select Status</option>
+                  <option value="For Sale">For Sale</option>
+                  <option value="For Rent">For Rent</option>
+                  <option value="Buy">Buy</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prop-price">Price <span class="required">*</span></label>
+                <input type="text" id="prop-price" name="price" placeholder="e.g., ₹3.5 Cr or ₹45,000/month" required>
+              </div>
+              <div class="form-group">
+                <label for="prop-location">Location <span class="required">*</span></label>
+                <input type="text" id="prop-location" name="location" placeholder="e.g., Vasant Vihar, South Delhi" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-inline">
+                <input type="checkbox" id="prop-featured" name="featured">
+                <span>Mark as Featured Property</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 2: Specifications -->
+          <div class="form-section">
+            <div class="form-section-header">
+              <div class="form-section-icon"><i class="fas fa-cogs"></i></div>
+              <div>
+                <h3>Property Specifications</h3>
+                <p>Add detailed specs about the property</p>
+              </div>
+            </div>
+
+            <div class="form-row form-row-3">
+              <div class="form-group">
+                <label for="prop-area">Area (sqft) <span class="required">*</span></label>
+                <input type="text" id="prop-area" name="area" placeholder="e.g., 2400" required>
+              </div>
+              <div class="form-group">
+                <label for="prop-bedrooms">Bedrooms</label>
+                <input type="number" id="prop-bedrooms" name="bedrooms" min="0" value="0">
+              </div>
+              <div class="form-group">
+                <label for="prop-bathrooms">Bathrooms</label>
+                <input type="number" id="prop-bathrooms" name="bathrooms" min="0" value="0">
+              </div>
+            </div>
+
+            <div class="form-row form-row-3">
+              <div class="form-group">
+                <label for="prop-floors">Number of Floors</label>
+                <input type="number" id="prop-floors" name="floors" min="0" value="0">
+              </div>
+              <div class="form-group">
+                <label for="prop-units">Number of Units</label>
+                <input type="number" id="prop-units" name="units" min="0" value="0">
+              </div>
+              <div class="form-group">
+                <label for="prop-project-area">Total Project Area</label>
+                <input type="text" id="prop-project-area" name="projectArea" placeholder="e.g., 7.12 Acres">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prop-configurations">Configurations</label>
+                <input type="text" id="prop-configurations" name="configurations" placeholder="e.g., 3, 4 BHK">
+              </div>
+              <div class="form-group">
+                <label for="prop-possession">Possession Status</label>
+                <select id="prop-possession" name="possessionStatus">
+                  <option value="Ready to Move">Ready to Move</option>
+                  <option value="Under Construction">Under Construction</option>
+                  <option value="Upcoming">Upcoming</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Images -->
+          <div class="form-section">
+            <div class="form-section-header">
+              <div class="form-section-icon"><i class="fas fa-camera"></i></div>
+              <div>
+                <h3>Property Images</h3>
+                <p>Upload high-quality images (JPEG, PNG, WebP — max 10MB each)</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Main Image <span class="required">*</span></label>
+              <div class="image-upload-zone" id="main-image-zone">
+                <input type="file" name="mainImage" id="main-image-input" accept="image/*" class="file-input">
+                <div class="upload-placeholder" id="main-image-placeholder">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <p>Drag & drop or <strong>click to browse</strong></p>
+                  <span>Recommended: 1200×800px</span>
+                </div>
+                <div class="upload-preview" id="main-image-preview" style="display:none;">
+                  <img src="" alt="Preview" id="main-preview-img">
+                  <button type="button" class="remove-image" id="remove-main-image"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Gallery Images (up to 5)</label>
+              <div class="image-upload-zone gallery-zone" id="gallery-image-zone">
+                <input type="file" name="galleryImages" id="gallery-image-input" accept="image/*" multiple class="file-input">
+                <div class="upload-placeholder" id="gallery-image-placeholder">
+                  <i class="fas fa-images"></i>
+                  <p>Drag & drop or <strong>click to browse</strong></p>
+                  <span>Select multiple images</span>
+                </div>
+              </div>
+              <div class="gallery-previews" id="gallery-previews"></div>
+            </div>
+          </div>
+
+          <!-- Step 4: Description & Highlights -->
+          <div class="form-section">
+            <div class="form-section-header">
+              <div class="form-section-icon"><i class="fas fa-align-left"></i></div>
+              <div>
+                <h3>Description & Highlights</h3>
+                <p>Describe your property and list its unique selling points</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="prop-description">Property Description</label>
+              <textarea id="prop-description" name="description" rows="5" placeholder="Describe the property in detail — its features, location benefits, construction quality, etc."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Key Highlights</label>
+              <div class="dynamic-list" id="highlights-list">
+                <div class="dynamic-list-item">
+                  <input type="text" placeholder="e.g., Corner unit with maximum ventilation" class="highlight-input">
+                  <button type="button" class="btn-remove-item" title="Remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <button type="button" class="btn-add-item" id="add-highlight-btn">
+                <i class="fas fa-plus"></i> Add Highlight
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 5: Amenities -->
+          <div class="form-section">
+            <div class="form-section-header">
+              <div class="form-section-icon"><i class="fas fa-star"></i></div>
+              <div>
+                <h3>Amenities & Facilities</h3>
+                <p>Select the amenities available with this property</p>
+              </div>
+            </div>
+
+            <div class="amenities-checkbox-grid" id="amenities-grid">
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Swimming Pool">
+                <span><i class="fas fa-swimming-pool"></i> Swimming Pool</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Gym">
+                <span><i class="fas fa-dumbbell"></i> Gym</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Parking">
+                <span><i class="fas fa-parking"></i> Parking</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Security">
+                <span><i class="fas fa-shield-alt"></i> Security</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Power Backup">
+                <span><i class="fas fa-bolt"></i> Power Backup</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Lift">
+                <span><i class="fas fa-arrow-up"></i> Lift/Elevator</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Club House">
+                <span><i class="fas fa-building"></i> Club House</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Children's Play Area">
+                <span><i class="fas fa-child"></i> Play Area</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Garden">
+                <span><i class="fas fa-leaf"></i> Garden</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="CCTV">
+                <span><i class="fas fa-video"></i> CCTV</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Fire Safety">
+                <span><i class="fas fa-fire-extinguisher"></i> Fire Safety</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Terrace">
+                <span><i class="fas fa-cloud-sun"></i> Terrace</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Modular Kitchen">
+                <span><i class="fas fa-utensils"></i> Modular Kitchen</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Water Supply">
+                <span><i class="fas fa-tint"></i> Water Supply</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Park">
+                <span><i class="fas fa-tree"></i> Park</span>
+              </label>
+              <label class="amenity-checkbox">
+                <input type="checkbox" value="Servant Quarter">
+                <span><i class="fas fa-door-open"></i> Servant Quarter</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 6: Address -->
+          <div class="form-section">
+            <div class="form-section-header">
+              <div class="form-section-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h3>Address Details</h3>
+                <p>Enter the complete address of the property</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="prop-address">Full Address</label>
+              <input type="text" id="prop-address" name="address" placeholder="e.g., Sector 104, Dwarka Expressway, Gurgaon">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prop-pincode">Pincode</label>
+                <input type="text" id="prop-pincode" name="pincode" placeholder="e.g., 110057">
+              </div>
+              <div class="form-group">
+                <!-- Spacer for alignment -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-lg" id="submit-property-btn">
+              <i class="fas fa-paper-plane"></i> Submit Property
+            </button>
+            <p class="form-note">Your property will be listed after submission.</p>
+          </div>
+
+        </form>
+
+        <!-- Success State -->
+        <div class="add-property-success" id="add-property-success" style="display:none;">
+          <div class="success-content">
+            <div class="success-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Property Added Successfully!</h2>
+            <p>Your property has been listed and is now visible to all visitors.</p>
+            <div class="success-actions">
+              <a href="properties.html" class="btn btn-primary">
+                <i class="fas fa-th-large"></i> View All Properties
+              </a>
+              <a href="add-property.html" class="btn btn-outline">
+                <i class="fas fa-plus"></i> Add Another Property
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="assets/images/vp-removebg-preview.png" alt="Vaishnav Investment & Properties Logo">
+            <div class="logo-text">
+              <strong>Vaishnav Investment</strong>
+              <span>& Properties</span>
+            </div>
+          </div>
+          <p class="footer-desc">Your one-stop destination for buying, selling, and renting premium properties in Delhi. Trusted by hundreds of families and businesses.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61590262600106" class="social-fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/vaishnav_investment_properties?igsh=MTB2bG1zbHljcHlvcQ==" class="social-ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@vaishnavinvestmentproperties?si=lGr510K-Lj7GFJqq" class="social-yt" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="properties.html"><i class="fas fa-chevron-right"></i> Properties</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Property Types</h4>
+          <ul>
+            <li><a href="properties.html?type=Apartment"><i class="fas fa-chevron-right"></i> Apartments</a></li>
+            <li><a href="properties.html?type=Villa"><i class="fas fa-chevron-right"></i> Villas</a></li>
+            <li><a href="properties.html?type=Commercial"><i class="fas fa-chevron-right"></i> Commercial</a></li>
+            <li><a href="properties.html?type=Builder+Floor"><i class="fas fa-chevron-right"></i> Builder Floors</a></li>
+            <li><a href="properties.html?type=Plot"><i class="fas fa-chevron-right"></i> Plots</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span><a href="tel:+919911987333">+91 9911987333</a></span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span><a href="mailto:connect.vipassets@gmail.com">connect.vipassets@gmail.com</a></span>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Delhi, India</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Vaishnav Investment & Properties. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/919911987333" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="tooltip">Chat with us</span>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* ============================================
+       ADD PROPERTY PAGE LOGIC
+       ============================================ */
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('add-property-form');
+      const successEl = document.getElementById('add-property-success');
+
+      // ---- Main Image Upload ----
+      const mainInput = document.getElementById('main-image-input');
+      const mainZone = document.getElementById('main-image-zone');
+      const mainPlaceholder = document.getElementById('main-image-placeholder');
+      const mainPreview = document.getElementById('main-image-preview');
+      const mainPreviewImg = document.getElementById('main-preview-img');
+      const removeMainBtn = document.getElementById('remove-main-image');
+
+      mainInput.addEventListener('change', () => {
+        if (mainInput.files && mainInput.files[0]) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            mainPreviewImg.src = e.target.result;
+            mainPlaceholder.style.display = 'none';
+            mainPreview.style.display = 'block';
+          };
+          reader.readAsDataURL(mainInput.files[0]);
+        }
+      });
+
+      removeMainBtn.addEventListener('click', () => {
+        mainInput.value = '';
+        mainPlaceholder.style.display = 'flex';
+        mainPreview.style.display = 'none';
+      });
+
+      // Drag and drop for main image
+      mainZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        mainZone.classList.add('dragover');
+      });
+      mainZone.addEventListener('dragleave', () => mainZone.classList.remove('dragover'));
+      mainZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        mainZone.classList.remove('dragover');
+        if (e.dataTransfer.files.length) {
+          mainInput.files = e.dataTransfer.files;
+          mainInput.dispatchEvent(new Event('change'));
+        }
+      });
+
+      // ---- Gallery Images ----
+      const galleryInput = document.getElementById('gallery-image-input');
+      const galleryZone = document.getElementById('gallery-image-zone');
+      const galleryPreviews = document.getElementById('gallery-previews');
+
+      galleryInput.addEventListener('change', () => {
+        galleryPreviews.innerHTML = '';
+        if (galleryInput.files) {
+          Array.from(galleryInput.files).forEach((file, i) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const div = document.createElement('div');
+              div.className = 'gallery-preview-item';
+              div.innerHTML = `
+                <img src="${e.target.result}" alt="Gallery preview ${i + 1}">
+                <span class="gallery-preview-name">${file.name}</span>
+              `;
+              galleryPreviews.appendChild(div);
+            };
+            reader.readAsDataURL(file);
+          });
+        }
+      });
+
+      // Drag and drop for gallery
+      galleryZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        galleryZone.classList.add('dragover');
+      });
+      galleryZone.addEventListener('dragleave', () => galleryZone.classList.remove('dragover'));
+      galleryZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        galleryZone.classList.remove('dragover');
+        if (e.dataTransfer.files.length) {
+          galleryInput.files = e.dataTransfer.files;
+          galleryInput.dispatchEvent(new Event('change'));
+        }
+      });
+
+      // ---- Dynamic Highlights ----
+      const highlightsList = document.getElementById('highlights-list');
+      const addHighlightBtn = document.getElementById('add-highlight-btn');
+
+      addHighlightBtn.addEventListener('click', () => {
+        const item = document.createElement('div');
+        item.className = 'dynamic-list-item';
+        item.innerHTML = `
+          <input type="text" placeholder="e.g., 6-feet deep wrap-around balconies" class="highlight-input">
+          <button type="button" class="btn-remove-item" title="Remove"><i class="fas fa-times"></i></button>
+        `;
+        highlightsList.appendChild(item);
+
+        // Animate in
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(-10px)';
+        requestAnimationFrame(() => {
+          item.style.transition = 'all 0.3s ease';
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        });
+
+        // Remove handler
+        item.querySelector('.btn-remove-item').addEventListener('click', () => {
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(-10px)';
+          setTimeout(() => item.remove(), 300);
+        });
+      });
+
+      // Remove handler for initial highlight
+      highlightsList.querySelector('.btn-remove-item').addEventListener('click', function() {
+        this.closest('.dynamic-list-item').remove();
+      });
+
+      // ---- Form Submission ----
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = document.getElementById('submit-property-btn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+        submitBtn.disabled = true;
+
+        try {
+          const formData = new FormData();
+
+          // Basic fields
+          formData.append('title', document.getElementById('prop-title').value);
+          formData.append('type', document.getElementById('prop-type').value);
+          formData.append('status', document.getElementById('prop-status').value);
+          formData.append('price', document.getElementById('prop-price').value);
+          formData.append('location', document.getElementById('prop-location').value);
+          formData.append('featured', document.getElementById('prop-featured').checked);
+
+          // Specs
+          formData.append('area', document.getElementById('prop-area').value);
+          formData.append('bedrooms', document.getElementById('prop-bedrooms').value);
+          formData.append('bathrooms', document.getElementById('prop-bathrooms').value);
+          formData.append('floors', document.getElementById('prop-floors').value);
+          formData.append('units', document.getElementById('prop-units').value);
+          formData.append('projectArea', document.getElementById('prop-project-area').value);
+          formData.append('configurations', document.getElementById('prop-configurations').value);
+          formData.append('possessionStatus', document.getElementById('prop-possession').value);
+
+          // Description
+          formData.append('description', document.getElementById('prop-description').value);
+
+          // Address
+          formData.append('address', document.getElementById('prop-address').value);
+          formData.append('pincode', document.getElementById('prop-pincode').value);
+
+          // Highlights
+          const highlights = [];
+          document.querySelectorAll('.highlight-input').forEach(input => {
+            if (input.value.trim()) highlights.push(input.value.trim());
+          });
+          formData.append('highlights', JSON.stringify(highlights));
+
+          // Amenities
+          const amenities = [];
+          document.querySelectorAll('#amenities-grid input[type="checkbox"]:checked').forEach(cb => {
+            amenities.push(cb.value);
+          });
+          formData.append('amenities', JSON.stringify(amenities));
+
+          // Images
+          const mainImageFile = document.getElementById('main-image-input').files[0];
+          if (mainImageFile) {
+            formData.append('mainImage', mainImageFile);
+          }
+
+          const galleryFiles = document.getElementById('gallery-image-input').files;
+          if (galleryFiles.length > 0) {
+            for (let i = 0; i < galleryFiles.length; i++) {
+              formData.append('galleryImages', galleryFiles[i]);
+            }
+          }
+
+          const res = await fetch('/api/properties', {
+            method: 'POST',
+            body: formData
+          });
+
+          if (!res.ok) {
+            const errorData = await res.json();
+            throw new Error(errorData.error || 'Failed to add property');
+          }
+
+          const newProperty = await res.json();
+          console.log('Property added:', newProperty);
+
+          // Show success
+          form.style.display = 'none';
+          successEl.style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        } catch (err) {
+          console.error('Error adding property:', err);
+          alert('Error: ' + err.message);
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

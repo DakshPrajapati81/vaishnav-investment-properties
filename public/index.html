@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaishnav Investment & Properties | Find Your Dream Property</title>
+  <meta name="description"
+    content="Vaishnav Investment & Properties — Your trusted real estate partner for buying, selling, and renting premium properties in Delhi. Find apartments, villas, commercial spaces, and more.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/vp-removebg-preview.png" alt="Vaishnav Investment & Properties Logo">
+        <div class="logo-text">
+          <strong>Vaishnav Investment</strong>
+          <span>& Properties</span>
+        </div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="properties.html">Properties</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="add-property.html" class="nav-add-btn"><i class="fas fa-plus"></i> Add Property</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-slideshow" id="heroSlideshow">
+      <div class="hero-slide active">
+        <img src="assets/images/hero-bg.png" alt="Luxury property interior">
+      </div>
+      <div class="hero-slide">
+        <img src="assets/images/dw flats.png" alt="DW Flats premium property">
+      </div>
+      <div class="hero-slide">
+        <img src="assets/images/office.jpg" alt="Modern office space">
+      </div>
+      <div class="hero-slide">
+        <img src="assets/images/omaxe.jpg" alt="Omaxe luxury development">
+      </div>
+      <div class="hero-slide">
+        <img src="assets/images/vegas.jpg" alt="Vegas premium property">
+      </div>
+    </div>
+    <div class="hero-content">
+      <span class="hero-badge">Trusted Real Estate Consultants</span>
+      <h1>Welcome To Vaishnav Investment & Properties</h1><br>
+      <h2>Looking To Buy, Sell or Rent a Property?
+        <br> Feel The VIP Difference
+      </h2>
+      <div class="hero-underline"></div>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <div class="search-field">
+          <label for="hero-location">Location</label>
+          <select id="hero-location">
+            <option value="all">All Locations</option>
+            <option value="Vasant Vihar">Vasant Vihar</option>
+            <option value="Greater Kailash">Greater Kailash</option>
+            <option value="Connaught Place">Connaught Place</option>
+            <option value="South Delhi">South Delhi</option>
+            <option value="Hauz Khas">Hauz Khas</option>
+            <option value="Dwarka">Dwarka</option>
+            <option value="Saket">Saket</option>
+            <option value="Lajpat Nagar">Lajpat Nagar</option>
+            <option value="Vasant Kunj">Vasant Kunj</option>
+            <option value="Chhatarpur">Chhatarpur</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label for="hero-status">Status</label>
+          <select id="hero-status">
+            <option value="all">All Status</option>
+            <option value="For Sale">Sale</option>
+            <option value="For Rent">Rent</option>
+            <option value="Buy">Buy</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label for="hero-type">Type</label>
+          <select id="hero-type">
+            <option value="all">All Types</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Villa">Villa</option>
+            <option value="Commercial">Commercial</option>
+            <option value="Builder Floor">Builder Floor</option>
+            <option value="Plot">Plot</option>
+          </select>
+        </div>
+        <button class="btn-search" id="hero-search-btn">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="section" id="about-preview">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <div class="label"><span class="dot"></span> Who We Are</div>
+          <h2>Your Trusted Real Estate Partner in Delhi</h2>
+          <div class="divider"></div>
+          <p>
+            Welcome to Vaishnav Investments & Properties. Finding the perfect property is more than just a transaction;
+            it is about securing a place where your long-term goals and lifestyle align beautifully. Based out of Dwarka
+            and Dwarka Expressway, Delhi, we specialize in premium DDA flats, prime residential apartments, and
+            high-yield commercial investment opportunities.
+          </p>
+          <p>
+            We guide you through the complex Delhi real estate market with absolute transparency, expert local
+            knowledge, and dedicated end-to-end support. Experience the VIP difference with a real estate partner who
+            prioritizes your vision
+          </p>
+          <a href="about.html" class="btn btn-primary">Learn More About Us <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="about-image reveal-right">
+          <img src="assets/images/about-building.png" alt="Modern luxury property">
+          <div class="accent-frame"></div>
+          <div class="accent-frame-bottom"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Properties -->
+  <section class="section section-alt" id="featured-properties">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="badge">Our Listings</span>
+        <h2><span class="accent-block"></span>Featured Properties</h2>
+        <p>Exclusive listings handpicked by our expert real estate consultants</p>
+        <div class="underline-bar"></div>
+      </div>
+      <div class="properties-grid" id="featured-grid">
+        <!-- Filled by JS or static -->
+      </div>
+      <div style="text-align: center; margin-top: 2.5rem;" class="reveal">
+        <a href="properties.html" class="btn btn-outline">View All Properties <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="section" id="services-preview">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="badge">What We Offer</span>
+        <h2><span class="accent-block"></span>Our Services</h2>
+        <p>Comprehensive real estate solutions tailored to your needs</p>
+        <div class="underline-bar"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-home"></i></div>
+          <h3>Property Buying</h3>
+          <p>Find your dream property with our expert guidance. We help you navigate the market and negotiate the best
+            deals.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-tags"></i></div>
+          <h3>Property Selling</h3>
+          <p>Get the best value for your property. Our marketing strategies and network ensure maximum exposure and
+            quick sales.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-key"></i></div>
+          <h3>Rental Services</h3>
+          <p>Whether you're a landlord or tenant, we simplify the rental process with verified listings and transparent
+            dealings.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 2.5rem;" class="reveal">
+        <a href="services.html" class="btn btn-outline">Explore All Services <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section section-alt testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="badge">Testimonials</span>
+        <h2><span class="accent-block"></span>What Our Clients Say</h2>
+        <p>How our real estate experts deliver excellence!</p>
+        <div class="underline-bar"></div>
+      </div>
+      <div class="testimonial-slider reveal">
+        <div class="testimonial-track">
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="quote-icon">&#8220;&#8221;</div>
+              <p class="testimonial-text">Vaishnav Investment & Properties helped us find the perfect 3BHK apartment in
+                South Delhi. Their team was incredibly professional, transparent, and went above and beyond to ensure we
+                got the best deal. Highly recommend their services!</p>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="client-info">
+                <div class="client-name">Rajesh Sharma</div>
+                <div class="client-role">Business Owner</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="quote-icon">&#8220;&#8221;</div>
+              <p class="testimonial-text">We were looking to invest in commercial property and VIP made the entire
+                process seamless. Their knowledge of the Delhi market is unmatched, and they helped us find a prime
+                office space that perfectly suits our needs.</p>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="client-info">
+                <div class="client-name">Priya Mehta</div>
+                <div class="client-role">IT Professional</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="quote-icon">&#8220;&#8221;</div>
+              <p class="testimonial-text">Selling our family property was an emotional and complex process, but the team
+                at Vaishnav Properties handled everything with care and expertise. They found the right buyer and got us
+                a fair price in today's market.</p>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <div class="client-info">
+                <div class="client-name">Amit Verma</div>
+                <div class="client-role">Retired Government Officer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-dots">
+          <button class="dot active" aria-label="Slide 1"></button>
+          <button class="dot" aria-label="Slide 2"></button>
+          <button class="dot" aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="reveal">Ready to Find Your Dream Property?</h2>
+      <p class="reveal">Let our expert team guide you through every step of your real estate journey.</p>
+      <a href="contact.html" class="btn btn-primary reveal">Contact Us Today <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="assets/images/vp-removebg-preview.png" alt="Vaishnav Investment & Properties Logo">
+            <div class="logo-text">
+              <strong>Vaishnav Investment</strong>
+              <span>& Properties</span>
+            </div>
+          </div>
+          <p class="footer-desc">Your one-stop destination for buying, selling, and renting premium properties in Delhi.
+            Trusted by hundreds of families and businesses.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61590262600106" class="social-fb" aria-label="Facebook"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/vaishnav_investment_properties?igsh=MTB2bG1zbHljcHlvcQ=="
+              class="social-ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@vaishnavinvestmentproperties?si=lGr510K-Lj7GFJqq" class="social-yt"
+              aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="properties.html"><i class="fas fa-chevron-right"></i> Properties</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Property Types</h4>
+          <ul>
+            <li><a href="properties.html?type=Apartment"><i class="fas fa-chevron-right"></i> Apartments</a></li>
+            <li><a href="properties.html?type=Villa"><i class="fas fa-chevron-right"></i> Villas</a></li>
+            <li><a href="properties.html?type=Commercial"><i class="fas fa-chevron-right"></i> Commercial</a></li>
+            <li><a href="properties.html?type=Builder+Floor"><i class="fas fa-chevron-right"></i> Builder Floors</a>
+            </li>
+            <li><a href="properties.html?type=Plot"><i class="fas fa-chevron-right"></i> Plots</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span><a href="tel:+919911987333">+91 9911987333</a></span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span><a href="mailto:connect.vipassets@gmail.com">connect.vipassets@gmail.com</a></span>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Delhi, India</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Vaishnav Investment & Properties. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/9911987333" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="tooltip">Chat with us</span>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Load featured properties on home page
+    document.addEventListener('DOMContentLoaded', async () => {
+      const grid = document.getElementById('featured-grid');
+      if (!grid) return;
+
+      try {
+        const res = await fetch('/api/properties?featured=true');
+        const featured = await res.json();
+        const display = featured.slice(0, 3);
+
+        function getStatusBadgeClass(status) {
+          if (status === 'For Sale') return 'badge-sale';
+          if (status === 'Buy') return 'badge-buy';
+          return 'badge-rent';
+        }
+
+        grid.innerHTML = display.map(p => {
+          const propId = p._id || p.id;
+          return `
+          <a href="property-detail.html?id=${propId}" class="property-card reveal" style="text-decoration:none;color:inherit;">
+            <div class="card-image">
+              <img src="${p.image}" alt="${p.title}" loading="lazy">
+              <div class="card-badges">
+                <span class="badge-tag ${getStatusBadgeClass(p.status)}">${p.status}</span>
+                <span class="badge-tag badge-featured">Featured</span>
+              </div>
+              <div class="card-price">${p.price}</div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">${p.title}</h3>
+              <div class="card-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>${p.location}, Delhi</span>
+              </div>
+              <div class="card-meta">
+                ${p.bedrooms > 0 ? `<span class="meta-item"><i class="fas fa-bed"></i> ${p.bedrooms} Beds</span>` : ''}
+                ${p.bathrooms > 0 ? `<span class="meta-item"><i class="fas fa-bath"></i> ${p.bathrooms} Baths</span>` : ''}
+                <span class="meta-item"><i class="fas fa-ruler-combined"></i> ${p.area} sqft</span>
+              </div>
+            </div>
+          </a>
+        `}).join('');
+
+        // Re-init scroll animations for dynamically added cards
+        initScrollAnimations();
+      } catch (err) {
+        console.error('Failed to load featured properties:', err);
+      }
+    });
+  </script>
+</body>
+
+</html>
