@@ -13,7 +13,56 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatsCounter();
   initPropertySearch();
   initContactForm();
+  initAdminAuth();
 });
+
+/* ---------- Admin Auth ---------- */
+function initAdminAuth() {
+  const token = localStorage.getItem('adminToken');
+
+  // Update footer admin link text
+  document.querySelectorAll('.footer-admin-link').forEach(el => {
+    if (token) {
+      el.innerHTML = '<a href="#" class="admin-logout-link"><i class="fas fa-sign-out-alt"></i> Admin Logout</a>';
+      el.querySelector('.admin-logout-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('adminToken');
+        window.location.reload();
+      });
+    }
+  });
+
+  if (!token) {
+    // Hide admin-only elements
+    document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'none');
+    return;
+  }
+
+  // Verify token is still valid
+  fetch('/api/auth/verify', {
+    headers: { 'Authorization': 'Bearer ' + token }
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.valid) {
+      // Show admin-only elements
+      document.querySelectorAll('.admin-only').forEach(el => el.style.display = '');
+    } else {
+      // Token expired — clean up
+      localStorage.removeItem('adminToken');
+      document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'none');
+    }
+  })
+  .catch(() => {
+    // Network error — hide admin UI to be safe
+    document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'none');
+  });
+}
+
+// Helper: get admin token
+function getAdminToken() {
+  return localStorage.getItem('adminToken');
+}
 
 /* ---------- Sticky Navbar ---------- */
 function initNavbar() {

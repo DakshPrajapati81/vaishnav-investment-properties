@@ -26,7 +26,9 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 /* ---------- API Routes ---------- */
 const propertyRoutes = require('./routes/properties');
+const authRoutes = require('./routes/auth');
 app.use('/api/properties', propertyRoutes);
+app.use('/api/auth', authRoutes);
 
 /* ---------- Catch-all: serve index.html ---------- */
 app.get('*', (req, res) => {

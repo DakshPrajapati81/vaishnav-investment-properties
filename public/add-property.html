@@ -26,7 +26,7 @@
         <a href="properties.html">Properties</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
-        <a href="add-property.html" class="nav-add-btn active"><i class="fas fa-plus"></i> Add Property</a>
+        <a href="add-property.html" class="nav-add-btn admin-only active" style="display:none;"><i class="fas fa-plus"></i> Add Property</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
         <span></span>
@@ -431,6 +431,9 @@
               <span>Delhi, India</span>
             </li>
           </ul>
+          <div class="footer-admin-link">
+            <a href="admin-login.html"><i class="fas fa-lock"></i> Admin Login</a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -452,6 +455,27 @@
        ============================================ */
 
     document.addEventListener('DOMContentLoaded', () => {
+      // Auth check — redirect if not admin
+      const adminToken = localStorage.getItem('adminToken');
+      if (!adminToken) {
+        window.location.href = 'admin-login.html';
+        return;
+      }
+      // Verify token
+      fetch('/api/auth/verify', {
+        headers: { 'Authorization': 'Bearer ' + adminToken }
+      })
+      .then(r => r.json())
+      .then(data => {
+        if (!data.valid) {
+          localStorage.removeItem('adminToken');
+          window.location.href = 'admin-login.html';
+        }
+      })
+      .catch(() => {
+        window.location.href = 'admin-login.html';
+      });
+
       const form = document.getElementById('add-property-form');
       const successEl = document.getElementById('add-property-success');
 
@@ -636,6 +660,9 @@
 
           const res = await fetch('/api/properties', {
             method: 'POST',
+            headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('adminToken')
+            },
             body: formData
           });
 

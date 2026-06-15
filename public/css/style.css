@@ -2901,6 +2901,209 @@ select {
 }
 
 /* ============================================
+   ADMIN LOGIN PAGE
+   ============================================ */
+.login-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--space-lg) var(--space-xl);
+  background: linear-gradient(135deg, #1A1D21 0%, #2D3748 50%, #1A1D21 100%);
+}
+
+.login-card {
+  background: var(--clr-white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  padding: var(--space-xl);
+  width: 100%;
+  max-width: 420px;
+  animation: loginSlideUp 0.5s ease;
+}
+
+@keyframes loginSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-card.shake {
+  animation: loginShake 0.4s ease;
+}
+
+@keyframes loginShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.login-icon {
+  width: 68px;
+  height: 68px;
+  background: var(--clr-orange-light);
+  color: var(--clr-orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto var(--space-md);
+}
+
+.login-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+  color: var(--clr-charcoal);
+}
+
+.login-header p {
+  color: var(--clr-text-secondary);
+  font-size: var(--fs-small);
+}
+
+.login-form-group {
+  margin-bottom: var(--space-md);
+}
+
+.login-form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: var(--fs-small);
+  color: var(--clr-charcoal);
+  margin-bottom: 6px;
+}
+
+.login-form-group label i {
+  color: var(--clr-orange);
+  margin-right: 4px;
+  width: 16px;
+}
+
+.login-form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--clr-light-gray);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-family: var(--ff-body);
+  transition: var(--transition);
+  background: var(--clr-off-white);
+  color: var(--clr-text);
+}
+
+.login-form-group input:focus {
+  border-color: var(--clr-orange);
+  box-shadow: 0 0 0 3px var(--clr-orange-glow);
+  background: var(--clr-white);
+  outline: none;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 44px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--clr-text-secondary);
+  cursor: pointer;
+  padding: 6px;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.toggle-password:hover {
+  color: var(--clr-orange);
+}
+
+.login-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.7rem 1rem;
+  background: #FEF2F2;
+  border: 1px solid #FCA5A5;
+  border-radius: var(--radius-sm);
+  color: #DC2626;
+  font-size: var(--fs-small);
+  margin-bottom: var(--space-md);
+}
+
+.login-error i {
+  flex-shrink: 0;
+}
+
+.login-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--clr-light-gray);
+}
+
+.login-footer a {
+  color: var(--clr-text-secondary);
+  font-size: var(--fs-small);
+  text-decoration: none;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.login-footer a:hover {
+  color: var(--clr-orange);
+}
+
+/* ============================================
+   FOOTER ADMIN LINK
+   ============================================ */
+.footer-admin-link {
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-admin-link a {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.7rem;
+  text-decoration: none;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-admin-link a:hover {
+  color: var(--clr-orange);
+}
+
+.footer-admin-link a i {
+  font-size: 0.65rem;
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 @media (max-width: 1024px) {

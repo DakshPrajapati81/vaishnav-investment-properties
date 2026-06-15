@@ -9,6 +9,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const Property = require('../models/Property');
+const authMiddleware = require('../middleware/auth');
 
 /* ---------- Multer Config for Image Uploads ---------- */
 const storage = multer.diskStorage({
@@ -95,7 +96,7 @@ router.get('/:id', async (req, res) => {
 
 /* ---------- POST /api/properties ---------- */
 // Create a new property
-router.post('/', uploadFields, async (req, res) => {
+router.post('/', authMiddleware, uploadFields, async (req, res) => {
   try {
     const data = req.body;
 
@@ -139,7 +140,7 @@ router.post('/', uploadFields, async (req, res) => {
 
 /* ---------- PUT /api/properties/:id ---------- */
 // Update a property
-router.put('/:id', uploadFields, async (req, res) => {
+router.put('/:id', authMiddleware, uploadFields, async (req, res) => {
   try {
     const data = req.body;
 
@@ -198,7 +199,7 @@ router.put('/:id', uploadFields, async (req, res) => {
 
 /* ---------- DELETE /api/properties/:id ---------- */
 // Delete a property
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authMiddleware, async (req, res) => {
   try {
     const property = await Property.findByIdAndDelete(req.params.id);
     if (!property) {
